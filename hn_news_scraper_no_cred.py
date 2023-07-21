@@ -1,5 +1,7 @@
 import requests # http requests
-
+import os # to get .env
+from dotenv import load_dotenv
+load_dotenv() # so os.environ.get('PASS') can see the .env 
 from bs4 import BeautifulSoup # web scraping
 # Send the mail
 import smtplib
@@ -26,7 +28,7 @@ def extract_news(url):
     response = requests.get(url)
     content = response.content
     soup = BeautifulSoup(content,'html.parser')
-    for i,tag in enumerate(soup.find_all('td',attrs={'class':'title','valign':''})):
+    for i,tag in enumerate(soup.find_all('td',attrs={'class':'title','valign':''})): # find all html elements that are td, has a class of title, and empty valign attribute
         cnt += ((str(i+1)+' :: '+ '<a href="' + tag.a.get('href') + '">' + tag.text + '</a>' + "\n" + '<br>') if tag.text!='More' else '')
         #print(tag.prettify) #find_all('span',attrs={'class':'sitestr'}))
     return(cnt)
@@ -43,12 +45,11 @@ print('Composing Email...')
 
 # update your email details
 # make sure to update the Google Low App Access settings before
-
 SERVER = 'smtp.gmail.com' # "your smtp server"
 PORT = 587 # your port number
-FROM =  '' # "your from email id"
-TO = '' # "your to email ids"  # can be a list
-PASS = '*****' # "your email id's password"
+FROM =  'andrewcbuensalida@gmail.com' # "your from email id"
+TO = 'andrewcbuensalida@gmail.com' # "your to email ids"  # can be a list
+PASS = str(os.environ.get('PASS')) # "since google doesn't allow log-in with your regular password from less secure apps like this, have to generate an app password from google settings 2 step verification"
 
 # fp = open(file_name, 'rb')
 # Create a text/plain message
