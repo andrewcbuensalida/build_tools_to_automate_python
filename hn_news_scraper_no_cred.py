@@ -69,7 +69,7 @@ print('Initiating Server...')
 
 server = smtplib.SMTP(SERVER, PORT)
 #server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-server.set_debuglevel(1)
+server.set_debuglevel(1) # 0 for no messages
 server.ehlo()
 server.starttls()
 #server.ehlo

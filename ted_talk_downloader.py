@@ -25,11 +25,21 @@ print("Download about to start")
 
 soup = BeautifulSoup(r.content, features="lxml")
 
+result = None
+
 for val in soup.findAll("script"):
-    if(re.search("talkPage.init",str(val))) is not None:
+    if re.search("talkpage",str(val)) is not None: # take out .init from talkpage.init because ted.com changed their html
         result = str(val)
 
-result_mp4 = re.search("(?P<url>https?://[^\s]+)(mp4)", result).group("url")
+if result is None:
+    raise Exception("Could not find script tag containing the mp4")
+
+result_mp4 = re.search("(?P<url>https?://[^\s]+)(mp4)", result).group()
+
+if result_mp4 is None:
+    raise Exception("Could not find mp4 in the script tag")
+
+print("This is result_mp4", result_mp4)
 
 mp4_url = result_mp4.split('"')[0]
 
