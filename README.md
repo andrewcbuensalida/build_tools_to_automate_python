@@ -31,6 +31,25 @@ A better way would be requirements.txt, then
 ===========================================================
 to run the programs, type the name of the file in the command line
 
+For the ted_talk_downloader, have to supply a ted talk url as an argument.
+  ted_talk_downloader https://www.ted.com/talks/jia_jiang_what_i_learned_from_100_days_of_rejection
+
+==========================================================
+Installed different types of jupyter so not sure which one is necessary. Installed the vs code extension, jupyter-lab, and jupyter.
+To launch jupyter
+  jupyter-lab
+
+Installing dependencies for PDF table extraction was messy. Had to install 
+  pip install opencv-python
+and
+  https://ghostscript.com/releases/gsdnld.html
+and 
+  https://platform.activestate.com/ActiveState/ActiveTcl-8.6
+and
+  pip install camelot-py
+as explained in 
+  https://camelot-py.readthedocs.io/en/master/user/install-deps.html
+
 
 ====================================================================================
 # Build Tools to Automate Stuff in Python

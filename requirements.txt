@@ -2,3 +2,7 @@ python-dotenv
 requests
 bs4
 lxml
+jupyterlab
+camelot-py
+opencv-python
+seaborn

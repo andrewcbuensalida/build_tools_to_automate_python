@@ -23,7 +23,7 @@ r = requests.get(url)
 
 print("Download about to start")
 
-soup = BeautifulSoup(r.content, features="lxml")
+soup = BeautifulSoup(r.content, features="lxml") # had to install lxml with pip for this to work
 
 result = None
 
