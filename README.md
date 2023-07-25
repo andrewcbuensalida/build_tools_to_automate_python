@@ -46,9 +46,13 @@ and
 and 
   https://platform.activestate.com/ActiveState/ActiveTcl-8.6
 and
-  pip install camelot-py
+  pip install camelot-py 
 as explained in 
   https://camelot-py.readthedocs.io/en/master/user/install-deps.html
+other pdf libraries
+  tabula, pdfplumber,pdftable, pdf-table-extract, but camelot the best. It outputs panda dataframe
+
+seaborn is for data visualization
 
 
 ====================================================================================
